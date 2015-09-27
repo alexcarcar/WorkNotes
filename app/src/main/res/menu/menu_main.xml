@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <!--item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" /-->
+    <item
+        android:id="@+id/paste_new_item"
+        android:title="@string/create_new_item"
+        android:onClick="paste_new_item" />
+    <item
+        android:id="@+id/paste_date"
+        android:title="@string/paste_date"
+        android:onClick="pasteDate" />
+    <item
+        android:id="@+id/paste_time"
+        android:title="@string/paste_time"
+        android:onClick="pasteTime" />
+    <item
+        android:id="@+id/clear_notes"
+        android:title="@string/clear_notes"
+        android:onClick="clearNotes" />
+</menu>
