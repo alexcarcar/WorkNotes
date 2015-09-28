@@ -3,13 +3,13 @@
     <string name="save_note">Save and Close</string>
     <string name="action_settings">Settings</string>
 
-    <string name="paste_time">Paste Time</string>
-    <string name="time_format">HH:mm</string>
+    <string name="paste_time">Add Time</string>
+    <string name="time_format">h:mm a</string>
 
     <string name="create_new_item">New Item</string>
     <string name="paste_new_item">- </string>
 
-    <string name="paste_date">Paste Date</string>
+    <string name="paste_date">Add Date</string>
     <string name="date_format">yyyy/MM/dd</string>
 
     <string name="clear_notes">Clear Notes</string>
