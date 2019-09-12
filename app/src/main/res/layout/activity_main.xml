@@ -11,7 +11,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity"
     android:gravity="fill_vertical|center_horizontal">
-    <Button android:id="@+id/save"
+    <Button
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:text="@string/save_note"
