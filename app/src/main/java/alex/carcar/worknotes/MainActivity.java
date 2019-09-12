@@ -1,14 +1,15 @@
-package carcar.alex.worknotes;
+package alex.carcar.worknotes;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -20,7 +21,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-private final static String STORETEXT="storetext.txt";
+    private final static String STORETEXT = "storetext.txt";
     private EditText txtEditor;
 
     public void saveClicked(View v) {
@@ -30,7 +31,7 @@ private final static String STORETEXT="storetext.txt";
             out.close();
             Toast.makeText(this, "The contents are saved in the file.", Toast.LENGTH_LONG).show();
         } catch (Throwable t) {
-            Toast.makeText(this, "Exception: "+t.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
         }
         this.finish();
     }
@@ -39,11 +40,11 @@ private final static String STORETEXT="storetext.txt";
         try {
             InputStream in = openFileInput(STORETEXT);
             if (in != null) {
-                InputStreamReader tmp=new InputStreamReader(in);
-                BufferedReader reader=new BufferedReader(tmp);
+                InputStreamReader tmp = new InputStreamReader(in);
+                BufferedReader reader = new BufferedReader(tmp);
                 String str;
 
-                StringBuilder buf=new StringBuilder();
+                StringBuilder buf = new StringBuilder();
                 while ((str = reader.readLine()) != null) {
                     buf.append(str).append("\n");
                 }
@@ -54,15 +55,15 @@ private final static String STORETEXT="storetext.txt";
         } catch (java.io.FileNotFoundException e) {
             // that's OK, we probably haven't created it yet
         } catch (Throwable t) {
-            Toast.makeText(this, "Exception: "+t.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
         }
     }
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-		txtEditor=(EditText)findViewById(R.id.textbox);
+        txtEditor = findViewById(R.id.textbox);
         readFileInEditor();
     }
 
@@ -112,21 +113,21 @@ private final static String STORETEXT="storetext.txt";
     }
 
     public void clearNotes(MenuItem item) {
-       new AlertDialog.Builder(this)
-               .setTitle(R.string.clear_notes)
-               .setMessage(R.string.are_you_sure)
-               .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int which) {
-                       // continue with delete
-                       txtEditor.setText("");
-                }
-               })
-               .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int which) {
-                       // do nothing
-                   }
-               })
-               .setIcon(android.R.drawable.ic_dialog_alert)
-            .show();
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.clear_notes)
+                .setMessage(R.string.are_you_sure)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        txtEditor.setText("");
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }
